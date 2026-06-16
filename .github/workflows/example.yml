@@ -12,4 +12,5 @@ jobs:
     with:
       scan_dependencies: true
       scan_secrets: true
+    secrets:
       ai_api_key: ${{ secrets.AI_API_KEY }}
