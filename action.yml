@@ -1,0 +1,29 @@
+name: 'Security Scanner'
+description: 'Comprehensive security scanning using open-source tools with AI-powered analysis'
+author: 'Your Name'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.scan_dependencies }}
+    - ${{ inputs.scan_secrets }}
+    - ${{ inputs.ai_api_key }}
+
+inputs:
+  scan_dependencies:
+    description: 'Scan dependencies for vulnerabilities'
+    required: false
+    default: 'true'
+  scan_secrets:
+    description: 'Scan for exposed secrets'
+    required: false
+    default: 'true'
+  ai_api_key:
+    description: 'API key for AI service (OpenAI, Anthropic, etc.)'
+    required: true
+    sensitive: true
+
+branding:
+  icon: 'shield'
+  color: 'green'

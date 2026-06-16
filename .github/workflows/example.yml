@@ -1,0 +1,15 @@
+name: Security Scan
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  security-scan:
+    uses: chetanmanjunath93/shield/.github/workflows/action.yml@main
+    with:
+      scan_dependencies: true
+      scan_secrets: true
+      ai_api_key: ${{ secrets.AI_API_KEY }}
